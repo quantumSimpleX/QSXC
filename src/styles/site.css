@@ -22,12 +22,12 @@ body {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 32px;
-  padding: 18px 48px;
+  padding: 20px 48px;
   background: rgba(250, 250, 247, 0.82);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--line);
-  height: 84px;
+  height: 112px;
 }
 
 .qsw-brand {
@@ -38,7 +38,7 @@ body {
 }
 
 .qsw-brand img {
-  height: 32px;
+  height: 72px;
   display: block;
 }
 
@@ -81,13 +81,16 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -32px;
+  bottom: -48px;
   height: 2px;
   background: var(--qs-ink-900);
 }
 
 .qsw-header-cta {
   justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* -------- Hero -------- */
@@ -337,11 +340,11 @@ body {
 }
 
 .qsw-practice--aqua .qsw-practice-num {
-  color: var(--accent-deep);
+  color: var(--qs-aqua-600);
 }
 
 .qsw-practice--amethyst .qsw-practice-num {
-  color: var(--accent-2-deep);
+  color: var(--qs-amethyst-600);
 }
 
 .qsw-practice--ink .qsw-practice-num {
@@ -460,8 +463,8 @@ body {
   text-transform: uppercase;
 }
 
-.qsw-tier--aqua .qsw-tier-badge { color: var(--accent-deep); }
-.qsw-tier--amethyst .qsw-tier-badge { color: var(--accent-2-deep); }
+.qsw-tier--aqua .qsw-tier-badge { color: var(--qs-aqua-600); }
+.qsw-tier--amethyst .qsw-tier-badge { color: var(--qs-amethyst-600); }
 .qsw-tier--ink .qsw-tier-badge { color: var(--fg-1); }
 
 .qsw-tier-name {
@@ -560,7 +563,7 @@ body {
 
 .qsw-calendar-embed iframe {
   width: 100%;
-  height: calc(100vh - 84px);
+  height: calc(100vh - 112px);
   min-height: 700px;
   border: 0;
   display: block;
@@ -628,8 +631,8 @@ body {
 
 .qsw-contact-input:focus,
 .qsw-contact-textarea:focus {
-  border-color: var(--qs-aqua-300);
-  box-shadow: 0 0 0 3px rgba(31, 195, 164, 0.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--qs-amethyst-100);
 }
 
 .qsw-contact-textarea {
@@ -803,4 +806,106 @@ body {
   .qsw-section-h {
     font-size: 36px;
   }
+}
+
+/* -------- Theme toggle button -------- */
+.qsw-theme-toggle {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--fg-2);
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
+  flex-shrink: 0;
+}
+
+.qsw-theme-toggle:hover {
+  border-color: var(--fg-1);
+  color: var(--fg-1);
+}
+
+/* -------- Theme-aware logo/icon switching -------- */
+/* Un-layered rules beat Tailwind's @layer base img { display: block } */
+img.logo-for-dark {
+  display: none;
+}
+
+[data-theme="dark"] img.logo-for-light {
+  display: none;
+}
+
+[data-theme="dark"] img.logo-for-dark {
+  display: block;
+}
+
+/* -------- Footer logo sizing -------- */
+.qsw-footer-brand-name img {
+  height: 56px;
+}
+
+/* -------- Dark mode component overrides -------- */
+[data-theme="dark"] .qsw-header {
+  background: rgba(20, 20, 18, 0.88);
+}
+
+[data-theme="dark"] .qsw-contact-input,
+[data-theme="dark"] .qsw-contact-textarea {
+  background: var(--bg-3);
+  color: var(--fg-1);
+  border-color: var(--line);
+}
+
+[data-theme="dark"] .qsw-hero-mark-inner {
+  background: var(--bg-3);
+}
+
+[data-theme="dark"] .qsw-calendar-embed {
+  background: var(--bg-3);
+}
+
+/* Strip is always ink-black — text must always be light regardless of theme */
+[data-theme="dark"] .qsw-strip {
+  color: #f0f0eb;
+}
+[data-theme="dark"] .qsw-strip-quote {
+  color: #f0f0eb;
+}
+[data-theme="dark"] .qsw-strip-d {
+  color: #b8b8b0;
+}
+
+/* -------- Dark mode button overrides -------- */
+/* qs-btn-primary: ink-black bg looks the same in dark mode, but --fg-inverse
+   correctly becomes dark (it's the page bg). Override to light text. */
+[data-theme="dark"] .qs-btn-primary {
+  background: var(--fg-1);
+  color: var(--bg-1);
+  border-color: var(--fg-1);
+}
+[data-theme="dark"] .qs-btn-primary:hover {
+  background: var(--fg-2);
+  border-color: var(--fg-2);
+  color: var(--bg-1);
+}
+
+/* qs-btn-accent uses amethyst bg — keep it, just ensure text is legible */
+[data-theme="dark"] .qs-btn-accent {
+  color: var(--qs-ink-900);
+}
+
+/* qs-btn-secondary and ghost are already transparent — just confirm fg colors */
+[data-theme="dark"] .qs-btn-secondary {
+  color: var(--fg-1);
+  border-color: var(--line-strong);
+}
+[data-theme="dark"] .qs-btn-secondary:hover {
+  background: var(--bg-3);
 }

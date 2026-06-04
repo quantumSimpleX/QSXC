@@ -15,8 +15,8 @@ function isActive(href: string) {
 
 <header class="qsw-header">
   <a href="/" class="qsw-brand">
-    <img src="/assets/logo.svg" alt="Quantum SimpleX Consulting" />
-    <span class="qsw-brand-name">Quantum SimpleX Consulting</span>
+    <img class="logo-for-light" src="/assets/logo-black.svg" alt="Quantum SimpleX Consulting" />
+    <img class="logo-for-dark"  src="/assets/logo-white.svg" alt="Quantum SimpleX Consulting" />
   </a>
   <nav class="qsw-nav" aria-label="Main navigation">
     {navItems.map(item => (
@@ -33,5 +33,28 @@ function isActive(href: string) {
     <a href="/book" class="qs-btn qs-btn-primary qs-btn-sm">
       Schedule Briefing <span aria-hidden="true">→</span>
     </a>
+    <button class="qsw-theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+      <span id="theme-icon">☾</span>
+    </button>
   </div>
 </header>
+
+<script>
+  const btn = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+
+  function updateIcon() {
+    if (icon) {
+      icon.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀' : '☾';
+    }
+  }
+
+  updateIcon();
+
+  btn?.addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+  });
+</script>
