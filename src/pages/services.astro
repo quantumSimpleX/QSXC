@@ -1,0 +1,102 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base
+  title="Services — Quantum SimpleX Consulting"
+  description="Three levels of AI transformation: Inspire, Mobilize, and Transform. Strategic advisory, workforce upskilling, and operational re-engineering."
+>
+  <Header />
+
+  <!-- Page intro -->
+  <div class="qsw-services-intro">
+    <span class="qs-eyebrow">Strategic Offerings</span>
+    <h1 class="qsw-section-h" style="margin-top: 16px; font-size: clamp(40px, 5vw, 64px);">
+      Three levels. One continuous transformation.
+    </h1>
+    <p class="qsw-services-intro-quote">
+      Services are structured in three levels, each one building the foundation the next level needs. The three levels are sequential by design. You can't transform what you haven't mobilized. You can't mobilize what you haven't inspired. Start wherever your organization actually is, and we'll build from there.
+    </p>
+  </div>
+
+  <!-- Tier grid -->
+  <div class="qsw-tier-grid">
+
+    <!-- Level 1: Inspire -->
+    <div class="qsw-tier qsw-tier--aqua" id="inspire">
+      <div class="qsw-tier-badge">Level 1</div>
+      <h2 class="qsw-tier-name">Inspire</h2>
+      <div class="qsw-tier-focus">Speaking &amp; Education to Change Mindset</div>
+      <ul class="qsw-tier-modules">
+        <li class="qsw-tier-module">
+          <div class="qsw-tier-module-name">Strategic Keynotes</div>
+          <p class="qsw-tier-module-desc">
+            High-impact speaking for conferences, boards, and executives to replace hype with concrete mental models.
+          </p>
+        </li>
+        <li class="qsw-tier-module">
+          <div class="qsw-tier-module-name">Foundational Education</div>
+          <p class="qsw-tier-module-desc">
+            Comprehensive enterprise workforce upskilling to build deep operational literacy in Big Data, ML, and AI.
+          </p>
+        </li>
+      </ul>
+      <a href="/book" class="qs-btn qs-btn-ghost" style="margin-top: auto; align-self: flex-start;">
+        Start here →
+      </a>
+    </div>
+
+    <!-- Level 2: Mobilize -->
+    <div class="qsw-tier qsw-tier--amethyst" id="mobilize">
+      <div class="qsw-tier-badge">Level 2</div>
+      <h2 class="qsw-tier-name">Mobilize</h2>
+      <div class="qsw-tier-focus">Advisory &amp; Alignment to Change Behaviors</div>
+      <ul class="qsw-tier-modules">
+        <li class="qsw-tier-module">
+          <div class="qsw-tier-module-name">AI Product Strategy</div>
+          <p class="qsw-tier-module-desc">
+            Strategic advisory defining, validating, and shaping high-ROI AI initiatives, GTM strategy, and value proposition design.
+          </p>
+        </li>
+        <li class="qsw-tier-module">
+          <div class="qsw-tier-module-name">Internal AI Adoption</div>
+          <p class="qsw-tier-module-desc">
+            Custom enablement frameworks and behavioral change programs tracking adoption KPIs to anchor AI workflows into daily work.
+          </p>
+        </li>
+      </ul>
+      <a href="/book" class="qs-btn qs-btn-ghost" style="margin-top: auto; align-self: flex-start;">
+        Start here →
+      </a>
+    </div>
+
+    <!-- Level 3: Transform -->
+    <div class="qsw-tier qsw-tier--ink" id="transform">
+      <div class="qsw-tier-badge">Level 3</div>
+      <h2 class="qsw-tier-name">Transform</h2>
+      <div class="qsw-tier-focus">Redesign &amp; Reorganize to Change Operation</div>
+      <ul class="qsw-tier-modules">
+        <li class="qsw-tier-module">
+          <div class="qsw-tier-module-name">AI-Centric Workflow</div>
+          <p class="qsw-tier-module-desc">
+            Deep-dive operational re-engineering auditing legacy bottlenecks and deploying bespoke agentic automation to restructure operations.
+          </p>
+        </li>
+        <li class="qsw-tier-module">
+          <div class="qsw-tier-module-name">Human-Centric Growth</div>
+          <p class="qsw-tier-module-desc">
+            Talent ecosystem restructuring, redefining job functions, programmatic reskilling, and corporate narrative management for an AI-augmented future.
+          </p>
+        </li>
+      </ul>
+      <a href="/book" class="qs-btn qs-btn-primary" style="margin-top: auto; align-self: flex-start;">
+        Start here →
+      </a>
+    </div>
+
+  </div>
+
+  <Footer />
+</Base>

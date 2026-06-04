@@ -1,0 +1,50 @@
+/* =========================================================
+   Quantum SimpleX — Design Tokens
+   ========================================================= */
+
+:root {
+  /* Ink scale */
+  --qs-ink-900: #0f0f0e;
+  --qs-ink-300: #b8b8b0;
+  --qs-ink-200: #d4d4cc;
+
+  /* Aqua scale (primary accent) */
+  --qs-aqua-100: #e0f7f4;
+  --qs-aqua-200: #8fe8da;
+  --qs-aqua-300: #1fc3a4;
+  --qs-aqua-400: #17a88d;
+
+  /* Amethyst scale (secondary accent) */
+  --qs-amethyst-500: #8a60eb;
+
+  /* Paper surfaces */
+  --qs-paper-pure: #fafaf7;
+  --qs-paper-warm: #f5f5f0;
+
+  /* Semantic surface tokens */
+  --bg-1: var(--qs-paper-pure);
+  --bg-3: #f0f0eb;
+
+  /* Semantic foreground tokens */
+  --fg-1: var(--qs-ink-900);
+  --fg-2: #4a4a42;
+  --fg-3: #8a8a80;
+  --fg-inverse: #fafaf7;
+
+  /* Accent shortcuts */
+  --accent-deep: #138070;
+  --accent-2-deep: #6a44c8;
+
+  /* Structural */
+  --line: #e4e4dc;
+  --shadow-1: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+  /* Typography */
+  --font-display: 'DM Serif Display', serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Motion */
+  --dur-base: 160ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

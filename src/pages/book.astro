@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const CALENDAR_URL = 'https://calendar.app.google/bE7bEAV7Kfbd63nt8';
+---
+
+<Base
+  title="Schedule a Discovery Call — Quantum SimpleX Consulting"
+  description="Book a 30-minute discovery call with Quantum SimpleX Consulting to discuss your AI transformation needs."
+>
+  <Header />
+
+  <main>
+    <div class="qsw-book">
+      <div class="qsw-book-head">
+        <span class="qs-eyebrow">Discovery Call</span>
+        <h1 class="qsw-book-h">Schedule a Briefing.</h1>
+        <p class="qsw-book-lede">
+          A focused 30-minute conversation about where your organization is and where it needs to go. No pitch, no deck — just a plain diagnosis and next step.
+        </p>
+      </div>
+    </div>
+
+    <div class="qsw-calendar-embed">
+      <iframe
+        src={CALENDAR_URL}
+        title="Schedule a discovery call"
+        loading="lazy"
+        allow="camera; microphone; fullscreen"
+      ></iframe>
+    </div>
+  </main>
+
+  <Footer />
+</Base>

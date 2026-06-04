@@ -1,0 +1,37 @@
+---
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/book', label: 'Book a Call' },
+];
+
+function isActive(href: string) {
+  if (href === '/') return pathname === '/';
+  return pathname.startsWith(href);
+}
+---
+
+<header class="qsw-header">
+  <a href="/" class="qsw-brand">
+    <img src="/assets/logo.svg" alt="Quantum SimpleX Consulting" />
+    <span class="qsw-brand-name">Quantum SimpleX Consulting</span>
+  </a>
+  <nav class="qsw-nav" aria-label="Main navigation">
+    {navItems.map(item => (
+      <a
+        href={item.href}
+        class={`qsw-nav-link${isActive(item.href) ? ' is-active' : ''}`}
+        aria-current={isActive(item.href) ? 'page' : undefined}
+      >
+        {item.label}
+      </a>
+    ))}
+  </nav>
+  <div class="qsw-header-cta">
+    <a href="/book" class="qs-btn qs-btn-primary qs-btn-sm">
+      Schedule Briefing <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</header>

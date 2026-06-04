@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Quantum SimpleX Consulting — AI Transformation Advisory">
+  <Header />
+
+  <!-- Hero -->
+  <section class="qsw-hero">
+    <div class="qsw-hero-grid">
+      <div class="qsw-hero-text">
+        <span class="qs-eyebrow">Quantum SimpleX Consulting</span>
+        <h1 class="qsw-hero-h">Building the Scaffolding for AI&nbsp;Transformation.</h1>
+        <p class="qsw-hero-lede">
+          High-impact strategic advisory, technical leadership, and workforce upskilling designed to transition organizations from baseline literacy to autonomous operations.
+        </p>
+        <div class="qsw-hero-ctas">
+          <a href="/services" class="qs-btn qs-btn-primary qs-btn-lg">
+            View Strategic Offerings
+          </a>
+          <a href="/book" class="qs-btn qs-btn-ghost qs-btn-lg">
+            Schedule Briefing
+          </a>
+        </div>
+      </div>
+      <div class="qsw-hero-mark">
+        <div class="qsw-hero-mark-inner">
+          <img src="/assets/mark.svg" alt="Quantum SimpleX mark" />
+        </div>
+        <div class="qsw-hero-mark-caption">
+          <span class="qs-mono">simplex · n.</span>
+          <span>the simplest possible polytope</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Strip -->
+  <section class="qsw-strip">
+    <div class="qsw-strip-inner">
+      <span class="qs-eyebrow" style="color: var(--qs-aqua-300); margin-bottom: 24px;">The Foundational Philosophy</span>
+      <blockquote class="qsw-strip-quote">
+        Most consulting engagements failed not because the strategy was wrong, but because the organization wasn't ready to receive it. You can hand a company the perfect AI roadmap and watch it collect dust, because the people, culture, and workflows weren't ready to execute it. IMHO, that's the real problem with how AI consulting is sold today. It's all strategy and no scaffolding.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="qsw-section">
+    <div class="qsw-section-head">
+      <span class="qs-eyebrow">Strategic Offerings</span>
+      <h2 class="qsw-section-h">Three levels. One continuous transformation.</h2>
+    </div>
+    <div class="qsw-practice-grid">
+      <!-- Level 1: Inspire -->
+      <div class="qsw-practice qsw-practice--aqua">
+        <div class="qsw-practice-num">LEVEL 01</div>
+        <h3 class="qsw-practice-name">Inspire</h3>
+        <p class="qsw-practice-short">Speaking &amp; Education to Change Mindset</p>
+        <ul class="qsw-practice-modules">
+          <li><strong>Strategic Keynotes</strong> — High-impact speaking for conferences, boards, and executives.</li>
+          <li><strong>Foundational Education</strong> — Comprehensive enterprise workforce upskilling in Big Data, ML, and AI.</li>
+        </ul>
+        <a href="/services#inspire" class="qsw-practice-cta">
+          View details <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- Level 2: Mobilize -->
+      <div class="qsw-practice qsw-practice--amethyst">
+        <div class="qsw-practice-num">LEVEL 02</div>
+        <h3 class="qsw-practice-name">Mobilize</h3>
+        <p class="qsw-practice-short">Advisory &amp; Alignment to Change Behaviors</p>
+        <ul class="qsw-practice-modules">
+          <li><strong>AI Product Strategy</strong> — Strategic advisory defining, validating, and shaping high-ROI AI initiatives.</li>
+          <li><strong>Internal AI Adoption</strong> — Custom enablement frameworks tracking adoption KPIs.</li>
+        </ul>
+        <a href="/services#mobilize" class="qsw-practice-cta">
+          View details <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- Level 3: Transform -->
+      <div class="qsw-practice qsw-practice--ink">
+        <div class="qsw-practice-num">LEVEL 03</div>
+        <h3 class="qsw-practice-name">Transform</h3>
+        <p class="qsw-practice-short">Redesign &amp; Reorganize to Change Operation</p>
+        <ul class="qsw-practice-modules">
+          <li><strong>AI-Centric Workflow</strong> — Deep-dive operational re-engineering with bespoke agentic automation.</li>
+          <li><strong>Human-Centric Growth</strong> — Talent ecosystem restructuring and corporate narrative management.</li>
+        </ul>
+        <a href="/services#transform" class="qsw-practice-cta">
+          View details <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: center;">
+      <a href="/services" class="qs-btn qs-btn-primary">View All Services →</a>
+    </div>
+  </section>
+
+  <Footer />
+</Base>
