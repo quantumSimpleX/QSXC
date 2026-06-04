@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quantum Simplex — Perplexity in plain words</title>
+  <link rel="stylesheet" href="website.css">
+  <link rel="icon" href="../../assets/icon-q-black.svg">
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="Header.jsx" data-presets="react"></script>
+  <script type="text/babel" src="Hero.jsx" data-presets="react"></script>
+  <script type="text/babel" src="PrinciplesStrip.jsx" data-presets="react"></script>
+  <script type="text/babel" src="PracticeGrid.jsx" data-presets="react"></script>
+  <script type="text/babel" src="InsightsList.jsx" data-presets="react"></script>
+  <script type="text/babel" src="InsightDetail.jsx" data-presets="react"></script>
+  <script type="text/babel" src="ContactCTA.jsx" data-presets="react"></script>
+  <script type="text/babel" src="Footer.jsx" data-presets="react"></script>
+
+  <script type="text/babel" data-presets="react">
+    const { useState, useEffect } = React;
+
+    function App() {
+      const [route, setRoute] = useState({ name: 'home' });
+
+      // Smooth scroll to top on route changes
+      useEffect(() => {
+        document.getElementById('app').scrollTo?.({ top: 0, behavior: 'instant' });
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }, [route]);
+
+      const goHome = () => setRoute({ name: 'home' });
+
+      const onNav = (id) => {
+        if (id === 'home') return setRoute({ name: 'home' });
+        if (id === 'insights') return setRoute({ name: 'insights' });
+        if (id === 'contact')  return setRoute({ name: 'home', anchor: 'contact' });
+        setRoute({ name: id });
+      };
+
+      useEffect(() => {
+        if (route.anchor === 'contact') {
+          requestAnimationFrame(() => {
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        }
+      }, [route]);
+
+      let view;
+      if (route.name === 'home') {
+        view = (
+          <>
+            <Hero
+              onPrimary={() => setRoute({ name: 'detail', insight: window.INSIGHTS[0] })}
+              onSecondary={() => document.getElementById('principles')?.scrollIntoView({ behavior: 'smooth' })}
+            />
+            <div id="principles"><PrinciplesStrip /></div>
+            <PracticeGrid onSelect={() => setRoute({ name: 'detail', insight: window.INSIGHTS[1] })} />
+            <InsightsList onSelect={(it) => setRoute({ name: 'detail', insight: it })} />
+            <div id="contact"><ContactCTA /></div>
+          </>
+        );
+      } else if (route.name === 'insights') {
+        view = (
+          <>
+            <section className="qsw-section" style={{ paddingTop: 96 }}>
+              <div className="qsw-section-head">
+                <div className="qs-eyebrow">Insights</div>
+                <h2 className="qsw-section-h">Field notes, briefs, and research.</h2>
+              </div>
+            </section>
+            <div style={{ background: 'var(--qs-paper-warm)' }}>
+              <InsightsList onSelect={(it) => setRoute({ name: 'detail', insight: it })} />
+            </div>
+            <ContactCTA />
+          </>
+        );
+      } else if (route.name === 'detail') {
+        view = <InsightDetail insight={route.insight} onBack={() => setRoute({ name: 'insights' })} />;
+      } else {
+        // Fallback for Practice / About
+        view = (
+          <section className="qsw-section" style={{ paddingTop: 96, paddingBottom: 96 }}>
+            <div className="qsw-section-head">
+              <div className="qs-eyebrow">{route.name}</div>
+              <h2 className="qsw-section-h">This page is in the kit's component library, not its demo.</h2>
+              <p style={{ marginTop: 24, color: 'var(--fg-2)', fontSize: 18, maxWidth: 640 }}>
+                Use the components from this kit to compose it. Go back home to see the full surface.
+              </p>
+              <div style={{ marginTop: 32 }}>
+                <button className="qs-btn qs-btn-primary" onClick={goHome}>← Back home</button>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      return (
+        <div className="qsw-app">
+          <Header current={route.name === 'home' ? 'home' : route.name === 'detail' ? 'insights' : route.name} onNav={onNav} />
+          {view}
+          <Footer />
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+  </script>
+</body>
+</html>
